@@ -494,11 +494,11 @@ h1, h2, h3, h4, h5, h6 {
 /* --- HERO SECTION --- */
 .hero {
   position: relative;
-  min-height: 88vh;
+  min-height: 84vh;
   display: flex;
   align-items: center;
   background: var(--primary-dark) url('../images/hero/hero-highway-bg.svg') no-repeat center center / cover;
-  padding: 130px 0 80px;
+  padding: 105px 0 72px;
   overflow: hidden;
 }
 
@@ -522,17 +522,17 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 44px;
+  gap: 52px;
 }
 
 .hero-content {
   flex: 1 1 68%;
-  max-width: 720px;
+  max-width: 740px;
 }
 
 /* Right logo emblem (compact, transparent, thin white outline) */
 .hero-logo-showcase {
-  flex: 0 0 210px;
+  flex: 0 0 215px;
   max-width: 230px;
   display: flex;
   justify-content: center;
@@ -541,7 +541,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-right-logo-img {
   width: 100%;
-  max-width: 210px;
+  max-width: 215px;
   height: auto;
   display: block;
   object-fit: contain;
@@ -555,44 +555,14 @@ h1, h2, h3, h4, h5, h6 {
   filter: drop-shadow(0 0 2.5px #FFFFFF) drop-shadow(0 0 6px rgba(212, 188, 139, 0.85)) drop-shadow(0 18px 36px rgba(0, 0, 0, 0.65));
 }
 
-/* Quotation Style */
-.hero-quote {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(212, 188, 139, 0.12);
-  border: 1.5px solid rgba(212, 188, 139, 0.45);
-  padding: 9px 20px;
-  border-radius: 50px;
-  margin-bottom: 22px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 188, 139, 0.15);
-}
-
-.hero-quote-icon {
-  color: var(--accent);
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-.hero-quote-text {
-  font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 2.2vw, 1.28rem);
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: 0.03em;
-  color: var(--accent);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-}
-
 /* Hero Title - Larger & authoritative */
 .hero-title {
-  font-size: clamp(2.4rem, 4.4vw, 3.85rem);
+  font-size: clamp(2.5rem, 4.5vw, 3.85rem);
   font-weight: 900;
   color: var(--white);
   line-height: 1.1;
   letter-spacing: -0.025em;
+  margin-top: 0;
   margin-bottom: 20px;
   text-transform: uppercase;
   text-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
@@ -1183,10 +1153,6 @@ textarea.form-control {
     flex-direction: column;
     text-align: center;
     gap: 32px;
-  }
-  .hero-quote {
-    margin-left: auto;
-    margin-right: auto;
   }
   .hero-text {
     margin-left: auto;
