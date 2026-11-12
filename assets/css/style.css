@@ -350,9 +350,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo {
-  height: 58px;
+  height: 70px;
   width: auto;
-  max-width: 310px;
+  max-width: 100%;
   object-fit: contain;
   transition: var(--transition);
 }
@@ -1223,8 +1223,8 @@ textarea.form-control {
     display: none;
   }
   .brand-logo {
-    height: 46px;
-    max-width: 230px;
+    height: 56px;
+    width: auto;
   }
   .mobile-nav-toggle {
     display: flex;
@@ -1541,8 +1541,8 @@ textarea.form-control {
   }
 
   .brand-logo {
-    max-width: 195px;
-    height: 40px;
+    height: 48px;
+    width: auto;
   }
 
   .section {
@@ -1608,8 +1608,8 @@ textarea.form-control {
 /* Extra Small Screens (<= 360px) */
 @media (max-width: 360px) {
   .brand-logo {
-    max-width: 150px;
-    height: 32px;
+    height: 42px;
+    width: auto;
   }
   .hero-title {
     font-size: 1.62rem;
