@@ -1,44 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 92" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 88" width="100%" height="100%">
   <defs>
     <linearGradient id="shieldBlueLight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#005577"/>
-      <stop offset="100%" stop-color="#00364C"/>
+      <stop offset="0%" stop-color="#005F85"/>
+      <stop offset="100%" stop-color="#00344A"/>
     </linearGradient>
   </defs>
 
   <!-- SHIELD EMBLEM -->
-  <g transform="translate(8, 4) scale(0.95)">
-    <!-- Outer Shield Body with Top Dip Horns and Base Point -->
+  <g transform="translate(4, 2) scale(0.96)">
     <path d="M 14 12 Q 44 22 74 12 L 74 52 C 74 72 44 86 44 86 C 44 86 14 72 14 52 Z" 
           fill="url(#shieldBlueLight)" stroke="#D4BC8B" stroke-width="2"/>
-    
-    <!-- Inner Gold Shield Border -->
     <path d="M 18 16 Q 44 25 70 16 L 70 51 C 70 69 44 81 44 81 C 44 81 18 69 18 51 Z" 
           fill="none" stroke="#D4BC8B" stroke-width="2.5"/>
-
-    <!-- Mountain Peaks -->
     <path d="M 18 43 L 30 31 L 44 19 L 58 33 L 70 43" 
           fill="none" stroke="#D4BC8B" stroke-width="2.5" stroke-linejoin="round"/>
     <path d="M 36 38 L 44 30 L 52 38" 
           fill="none" stroke="#D4BC8B" stroke-width="2" stroke-linejoin="round"/>
-
-    <!-- Horizontal Horizon Bar -->
     <line x1="18" y1="43" x2="70" y2="43" stroke="#D4BC8B" stroke-width="2.5"/>
-
-    <!-- Converging Perspective Highway (White Roadway) -->
     <polygon points="41,43 47,43 65,77 23,77" fill="#002F43"/>
     <polygon points="42,43 46,43 60,77 28,77" fill="#003E58"/>
-    <!-- Road Surface Shoulders -->
     <path d="M 28 77 L 42 43" stroke="#FFFFFF" stroke-width="3.5" fill="none"/>
     <path d="M 60 77 L 46 43" stroke="#FFFFFF" stroke-width="3.5" fill="none"/>
-    <!-- Center Dashed Highway Line -->
     <line x1="44" y1="45" x2="44" y2="75" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="5,3"/>
   </g>
 
-  <!-- BRAND TYPOGRAPHY (DARK FOOTER) -->
-  <g transform="translate(98, 0)">
-    <text x="0" y="46" font-family="'Montserrat', 'Inter', -apple-system, sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" letter-spacing="5">EMPIRE</text>
-    <line x1="0" y1="57" x2="430" y2="57" stroke="#D4BC8B" stroke-width="3"/>
-    <text x="0" y="77" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="11" fill="#CBD5E1" letter-spacing="3.5">CONSTRUCTIONS &amp; INFRASTRUCTURES</text>
+  <!-- BRAND TYPOGRAPHY (DARK / FOOTER) -->
+  <g transform="translate(96, 0)">
+    <text x="0" y="48" font-family="'Montserrat', -apple-system, sans-serif" font-weight="900" font-size="40" fill="#FFFFFF" letter-spacing="4">EMPIRE</text>
+    <text x="2" y="73" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="12" fill="#D4BC8B" letter-spacing="2.8">CONSTRUCTIONS &amp; INFRASTRUCTURES</text>
   </g>
 </svg>
