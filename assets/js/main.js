@@ -139,11 +139,11 @@ function initProjects() {
 
   // B. Render Featured Projects (on index.html)
   if (homeProjectsGrid && typeof PROJECTS_DATA !== "undefined") {
-    // Show 3 balanced representative projects (1 ongoing, 1 recent, 1 completed)
+    // Show the 3 genuine company projects with authentic site photos
     const featured = [
-      PROJECTS_DATA[0], // Highway Widening (ongoing)
-      PROJECTS_DATA[2], // Bridge (recent)
-      PROJECTS_DATA[4]  // Hill Road (completed)
+      PROJECTS_DATA[0], // Laroo-Munad Road (Road Construction, Ongoing, Kulgam)
+      PROJECTS_DATA[1], // Damjan Bridge (Bridge Construction, Ongoing, Qazigund)
+      PROJECTS_DATA[2]  // Migrant Colony Chowgam (Building & Civil, Completed, Kulgam)
     ];
     renderProjectCards(homeProjectsGrid, featured);
   }
@@ -169,12 +169,16 @@ function renderProjectCards(container, items) {
     if (proj.statusCode === "ongoing") statusClass = "status-ongoing";
     if (proj.statusCode === "recent") statusClass = "status-recent";
 
+    const badgeHtml = proj.isVerified
+      ? `<span class="badge-verified"><i class="fa-solid fa-circle-check"></i> Company Project</span>`
+      : `<span class="sample-badge"><i class="fa-solid fa-layer-group"></i> Illustrative Template</span>`;
+
     return `
       <article class="project-card fade-in-up visible" data-id="${proj.id}" role="button" tabindex="0" aria-label="View details for ${proj.title}">
         <div class="project-card-media">
           <img src="${proj.image}" alt="${proj.title}" loading="lazy" />
           <span class="project-status-pill ${statusClass}">${proj.status}</span>
-          <span class="sample-badge"><i class="fa-solid fa-layer-group"></i> Illustrative Sample</span>
+          ${badgeHtml}
         </div>
         <div class="project-card-body">
           <div class="project-card-meta">
@@ -185,7 +189,7 @@ function renderProjectCards(container, items) {
           <p class="project-card-desc">${proj.shortDesc}</p>
           <div class="project-card-footer">
             <span style="font-size: 0.8rem; color: #64748B;"><i class="fa-regular fa-calendar-check"></i> ${proj.completionDate}</span>
-            <span class="project-view-btn">View Scope <i class="fa-solid fa-arrow-right"></i></span>
+            <span class="project-view-btn">View Gallery &amp; Scope <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
       </article>
@@ -243,15 +247,34 @@ function openProjectModal(projectId) {
     ? proj.keyComponents.map(c => `<li><i class="fa-solid fa-circle-check" style="color: #F28C28; margin-right: 8px;"></i>${c}</li>`).join("")
     : "";
 
+  const badgeOnPhoto = proj.isVerified
+    ? `<span class="badge-verified" style="position: absolute; bottom: 20px; left: 20px;"><i class="fa-solid fa-circle-check"></i> Verified Company Project Record</span>`
+    : `<span class="sample-badge" style="position: absolute; bottom: 20px; left: 20px;"><i class="fa-solid fa-layer-group"></i> Illustrative Project Template</span>`;
+
+  const noteBox = proj.isVerified
+    ? `<div style="background: #F0FDF4; border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 6px; font-size: 0.88rem; color: #065F46; margin-bottom: 24px;"><strong>Company Project:</strong> Civil infrastructure project undertaken by Empire Construction and Infrastructure in ${proj.location}. All photographs represent verified project execution.</div>`
+    : `<div style="background: #FFFBEB; border-left: 4px solid #F59E0B; padding: 14px 18px; border-radius: 6px; font-size: 0.85rem; color: #92400E; margin-bottom: 24px;"><strong>Portfolio Note:</strong> This card represents an illustrative sample entry demonstrating the project presentation layout.</div>`;
+
+  const galleryHtml = (proj.gallery && proj.gallery.length > 1) ? `
+    <div class="modal-gallery-strip">
+      <div class="modal-gallery-title"><i class="fa-solid fa-images"></i> Project Photographs (${proj.gallery.length} Images — Click any to view):</div>
+      <div class="modal-gallery-thumbs">
+        ${proj.gallery.map((imgUrl, idx) => `
+          <button type="button" class="modal-thumb-btn ${idx === 0 ? 'active' : ''}" data-src="${imgUrl}" aria-label="View photograph ${idx + 1}">
+            <img src="${imgUrl}" alt="${proj.title} photo ${idx + 1}" loading="lazy" />
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  ` : "";
+
   modalOverlay.innerHTML = `
     <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close-btn" aria-label="Close project modal">&times;</button>
       <div class="modal-media">
-        <img id="modalMainImg" src="${proj.image}" alt="${proj.title}" />
+        <img id="modalMainImg" src="${proj.image}" alt="${proj.title}" style="transition: opacity 0.2s ease;" />
         <span class="project-status-pill ${statusClass}" style="position: absolute; top: 20px; right: 20px;">${proj.status}</span>
-        <span class="sample-badge" style="position: absolute; bottom: 20px; left: 20px;">
-          <i class="fa-solid fa-circle-info"></i> Sample Entry for Portfolio Demonstration
-        </span>
+        ${badgeOnPhoto}
       </div>
       <div class="modal-body">
         <div class="modal-header-meta">
@@ -264,16 +287,17 @@ function openProjectModal(projectId) {
           </span>
         </div>
         <h2 id="modalTitle" class="modal-title">${proj.title}</h2>
+        
+        ${galleryHtml}
+
         <p class="modal-desc">${proj.fullDesc}</p>
         
-        <h4 style="font-size: 1.1rem; color: #10243A; margin-bottom: 12px; font-weight: 700;">Key Civil Engineering Components:</h4>
+        <h4 style="font-size: 1.1rem; color: #10243A; margin-bottom: 12px; font-weight: 700;">Key Project Details &amp; Specifications:</h4>
         <ul style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; font-size: 0.95rem; color: #334155;">
           ${componentsHtml}
         </ul>
 
-        <div style="background: #FFFBEB; border-left: 4px solid #F59E0B; padding: 14px 18px; border-radius: 6px; font-size: 0.85rem; color: #92400E; margin-bottom: 24px;">
-          <strong>Portfolio Note:</strong> This card represents an illustrative sample entry demonstrating the project presentation layout. Genuine project details, client authorizations, and completed works can be configured dynamically.
-        </div>
+        ${noteBox}
 
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; border-top: 1px solid #E2E8F0; padding-top: 20px;">
           <a href="contact.html?subject=${encodeURIComponent('Inquiry regarding ' + proj.title)}" class="btn btn-primary btn-sm">
@@ -288,6 +312,25 @@ function openProjectModal(projectId) {
   // Attach close listener to new button
   const newCloseBtn = modalOverlay.querySelector(".modal-close-btn");
   if (newCloseBtn) newCloseBtn.addEventListener("click", closeProjectModal);
+
+  // Attach click listener to gallery thumbnails
+  const thumbBtns = modalOverlay.querySelectorAll(".modal-thumb-btn");
+  const mainImg = modalOverlay.querySelector("#modalMainImg");
+  thumbBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      thumbBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const targetSrc = btn.getAttribute("data-src");
+      if (mainImg && targetSrc) {
+        mainImg.style.opacity = "0.3";
+        setTimeout(() => {
+          mainImg.src = targetSrc;
+          mainImg.style.opacity = "1";
+        }, 120);
+      }
+    });
+  });
 
   modalOverlay.classList.add("open");
   document.body.style.overflow = "hidden";
