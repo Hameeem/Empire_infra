@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10243A"/>
+      <stop offset="60%" stop-color="#182E47"/>
+      <stop offset="100%" stop-color="#0B131F"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#pGrad)"/>
+
+  <!-- Blueprint Engineering Pattern -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.08">
+    <line x1="0" y1="130" x2="800" y2="130"/>
+    <line x1="0" y1="260" x2="800" y2="260"/>
+    <line x1="0" y1="390" x2="800" y2="390"/>
+    <line x1="200" y1="0" x2="200" y2="520"/>
+    <line x1="400" y1="0" x2="400" y2="520"/>
+    <line x1="600" y1="0" x2="600" y2="520"/>
+  </g>
+
+  <!-- Mountain Background -->
+  <path d="M0 320 L180 230 L360 290 L540 210 L700 280 L800 220 L800 430 L0 430 Z" fill="#0C1B2B" opacity="0.75"/>
+
+  <!-- Project Silhouette Art -->
+  
+  <!-- Concrete PSC Girder Bridge Span -->
+  <rect x="0" y="240" width="800" height="28" fill="#1E293B" stroke="#F28C28" stroke-width="3"/>
+  <!-- Two Massive Piers with Flaring Caps -->
+  <polygon points="260,268 310,268 300,430 270,430" fill="#475569" stroke="#94A3B8" stroke-width="2"/>
+  <polygon points="500,268 550,268 540,430 510,430" fill="#475569" stroke="#94A3B8" stroke-width="2"/>
+  <!-- River Flowing Beneath -->
+  <rect x="0" y="380" width="800" height="50" fill="#0E2A47"/>
+
+
+  <!-- Watermark: Illustrative Placeholder -->
+  <rect x="20" y="20" width="220" height="28" rx="4" fill="#000000" opacity="0.6"/>
+  <text x="30" y="38" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#94A3B8" letter-spacing="1">&#9888; ILLUSTRATIVE SAMPLE</text>
+
+  <!-- Status Pill -->
+  <rect x="630" y="20" width="150" height="32" rx="16" fill="#0284C7" opacity="0.95"/>
+  <text x="705" y="41" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">RECENT</text>
+
+  <!-- Lower Card Data Banner -->
+  <rect x="0" y="430" width="800" height="90" fill="#0B131F"/>
+  <line x1="0" y1="430" x2="800" y2="430" stroke="#F28C28" stroke-width="3"/>
+  <text x="30" y="462" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#F28C28" letter-spacing="1.5">&#9906; JAMMU & KASHMIR</text>
+  <text x="30" y="495" font-family="'Montserrat', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">Pre-Stressed Concrete Girder Bridge</text>
+</svg>

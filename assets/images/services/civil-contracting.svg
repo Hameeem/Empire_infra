@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10243A"/>
+      <stop offset="70%" stop-color="#193554"/>
+      <stop offset="100%" stop-color="#0B1724"/>
+    </linearGradient>
+    <linearGradient id="accentOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F28C28"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Engineering Blueprint Grid -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.08">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+
+  <!-- Mountain Silhouette / Jammu & Kashmir Backdrop -->
+  <path d="M0 340 L160 270 L340 320 L520 250 L680 300 L800 240 L800 450 L0 450 Z" fill="#0C1B2B" opacity="0.6"/>
+
+  <!-- Specific Service Artwork -->
+  
+  <!-- Surveying Total Station & Geological Precision Lines -->
+  <!-- Tripod Legs -->
+  <line x1="400" y1="210" x2="310" y2="390" stroke="#F28C28" stroke-width="7" stroke-linecap="round"/>
+  <line x1="400" y1="210" x2="490" y2="390" stroke="#F28C28" stroke-width="7" stroke-linecap="round"/>
+  <line x1="400" y1="210" x2="400" y2="390" stroke="#D97706" stroke-width="5"/>
+  <!-- Total Station Head Unit -->
+  <rect x="375" y="165" width="50" height="45" rx="5" fill="#10243A" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="400" cy="187" r="14" fill="#38BDF8" stroke="#F28C28" stroke-width="3"/>
+  <line x1="365" y1="187" x2="435" y2="187" stroke="#F28C28" stroke-width="2"/>
+  <!-- Laser Sight Beam -->
+  <line x1="400" y1="187" x2="720" y2="150" stroke="#EF4444" stroke-width="2" stroke-dasharray="8,4"/>
+
+
+  <!-- Lower Overlay Card Header Bar -->
+  <rect x="0" y="420" width="800" height="80" fill="#0B1724" opacity="0.95"/>
+  <rect x="0" y="416" width="800" height="4" fill="url(#accentOrange)"/>
+
+  <!-- Category & Title Labels -->
+  <text x="40" y="450" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#F28C28" letter-spacing="2">ENGINEERING OPERATIONS</text>
+  <text x="40" y="480" font-family="'Montserrat', sans-serif" font-size="22" font-weight="700" fill="#FFFFFF" letter-spacing="1">Civil Engineering & Contracting</text>
+
+  <!-- Technical Code / Badge -->
+  <rect x="650" y="445" width="110" height="32" rx="4" fill="#1E293B" stroke="#64748B" stroke-width="1"/>
+  <text x="705" y="466" font-family="'Inter', monospace" font-size="12" font-weight="600" fill="#94A3B8" text-anchor="middle">SPEC: ISO-STD</text>
+</svg>

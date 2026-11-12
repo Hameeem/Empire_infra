@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="primaryOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F28C28"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="primaryNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10243A"/>
+      <stop offset="100%" stop-color="#0B1724"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Emblem / Monogram -->
+  <g transform="translate(4, 6)">
+    <!-- Hexagonal / Pillar Structural Shield -->
+    <path d="M34 2 L64 19 L64 53 L34 70 L4 53 L4 19 Z" fill="url(#primaryNavy)" stroke="#10243A" stroke-width="2"/>
+    <!-- Ascending Infrastructure Lines (Road/Bridge Highway Perspective) -->
+    <path d="M34 14 L52 50 L44 50 L34 28 L24 50 L16 50 Z" fill="url(#primaryOrange)"/>
+    <!-- Center Dashed Highway Line -->
+    <line x1="34" y1="28" x2="34" y2="50" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="3,3"/>
+    <!-- Horizon Arch -->
+    <path d="M12 40 Q34 32 56 40" stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Brand Typography (For Light Background) -->
+  <text x="82" y="38" font-family="'Montserrat', 'Inter', -apple-system, sans-serif" font-weight="800" font-size="25" fill="#10243A" letter-spacing="3.5">EMPIRE</text>
+  <line x1="82" y1="46" x2="410" y2="46" stroke="#F28C28" stroke-width="2.5"/>
+  <text x="82" y="64" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#64748B" letter-spacing="2">CONSTRUCTION &amp; INFRASTRUCTURE</text>
+</svg>
