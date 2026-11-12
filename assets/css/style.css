@@ -532,8 +532,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Right logo emblem (compact, transparent, thin white outline) */
 .hero-logo-showcase {
-  flex: 0 0 240px;
-  max-width: 250px;
+  flex: 0 0 210px;
+  max-width: 230px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -541,7 +541,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-right-logo-img {
   width: 100%;
-  max-width: 240px;
+  max-width: 210px;
   height: auto;
   display: block;
   object-fit: contain;
@@ -1200,7 +1200,7 @@ textarea.form-control {
     width: 100%;
   }
   .hero-right-logo-img {
-    max-width: 190px;
+    max-width: 165px;
     margin: 0 auto;
   }
   .intro-grid {
@@ -1511,6 +1511,11 @@ textarea.form-control {
   .container {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .hero-right-logo-img {
+    max-width: 140px;
+    margin: 0 auto;
   }
 
   /* App-Style Horizontally Scrollable Filter Tabs */
