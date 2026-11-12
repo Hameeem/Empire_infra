@@ -1,101 +1,99 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
   <defs>
     <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#08131F"/>
-      <stop offset="50%" stop-color="#10243A"/>
-      <stop offset="85%" stop-color="#1B3B5C"/>
-      <stop offset="100%" stop-color="#3A2818"/>
+      <stop offset="0%" stop-color="#001824"/>
+      <stop offset="45%" stop-color="#002D3F"/>
+      <stop offset="80%" stop-color="#004763"/>
+      <stop offset="100%" stop-color="#3A3425"/>
     </linearGradient>
-    <linearGradient id="orangeGlow" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#F28C28" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#F28C28" stop-opacity="0"/>
+    <linearGradient id="goldGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#D4BC8B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#C5A465" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="roadGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#1A222B"/>
-      <stop offset="100%" stop-color="#0B0F14"/>
+      <stop offset="0%" stop-color="#0F202B"/>
+      <stop offset="100%" stop-color="#050B0F"/>
     </linearGradient>
     <linearGradient id="concreteBarrier" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#64748B"/>
-      <stop offset="50%" stop-color="#94A3B8"/>
-      <stop offset="100%" stop-color="#475569"/>
+      <stop offset="0%" stop-color="#5E7383"/>
+      <stop offset="50%" stop-color="#8DA1B0"/>
+      <stop offset="100%" stop-color="#415360"/>
     </linearGradient>
   </defs>
 
   <!-- Sky -->
   <rect width="1920" height="1080" fill="url(#skyGrad)"/>
 
-  <!-- Distant Mountain Ranges (Jammu & Kashmir Himalayan Topography) -->
-  <path d="M0 540 L180 430 L350 490 L520 380 L680 450 L890 320 L1100 440 L1260 360 L1450 470 L1680 340 L1820 420 L1920 370 L1920 750 L0 750 Z" fill="#0C1B2B" opacity="0.85"/>
-  <path d="M0 580 L220 490 L420 560 L620 460 L840 520 L1020 430 L1280 530 L1520 440 L1760 520 L1920 470 L1920 800 L0 800 Z" fill="#13263B" opacity="0.95"/>
+  <!-- Distant Mountain Ranges (Jammu & Kashmir Himalayan Topography echoing Logo) -->
+  <path d="M0 540 L180 430 L350 490 L520 380 L680 450 L890 320 L1100 440 L1260 360 L1450 470 L1680 340 L1820 420 L1920 370 L1920 750 L0 750 Z" fill="#001F2C" opacity="0.9"/>
+  <path d="M0 580 L220 490 L420 560 L620 460 L840 520 L1020 430 L1280 530 L1520 440 L1760 520 L1920 470 L1920 800 L0 800 Z" fill="#002A3C" opacity="0.95"/>
 
   <!-- Golden Sunrise Horizon Glow -->
-  <ellipse cx="960" cy="580" rx="900" ry="120" fill="url(#orangeGlow)"/>
+  <ellipse cx="960" cy="580" rx="900" ry="120" fill="url(#goldGlow)"/>
 
   <!-- Midground Rolling Terrain & Civil Work Earthwork -->
-  <path d="M0 650 Q480 610 960 660 T1920 640 L1920 1080 L0 1080 Z" fill="#1E293B"/>
+  <path d="M0 650 Q480 610 960 660 T1920 640 L1920 1080 L0 1080 Z" fill="#093144"/>
 
-  <!-- Highway Overpass & Sweeping Multi-Lane Expressway Structure -->
-  <!-- Sweeping Highway Deck (Perspective View) -->
+  <!-- Highway Overpass & Sweeping Multi-Lane Expressway Structure (Matching Shield Perspective) -->
   <path d="M720 620 L1200 620 L1850 1080 L70 1080 Z" fill="url(#roadGrad)"/>
 
   <!-- Highway Lane Markings (Dashed White Lines) -->
-  <line x1="960" y1="620" x2="960" y2="1080" stroke="#FFFFFF" stroke-width="8" stroke-dasharray="40,30" opacity="0.85"/>
-  <line x1="880" y1="620" x2="550" y2="1080" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="35,25" opacity="0.6"/>
-  <line x1="1040" y1="620" x2="1370" y2="1080" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="35,25" opacity="0.6"/>
+  <line x1="960" y1="620" x2="960" y2="1080" stroke="#FFFFFF" stroke-width="8" stroke-dasharray="40,30" opacity="0.9"/>
+  <line x1="880" y1="620" x2="550" y2="1080" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="35,25" opacity="0.65"/>
+  <line x1="1040" y1="620" x2="1370" y2="1080" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="35,25" opacity="0.65"/>
 
-  <!-- Road Edges / Shoulders with Safety Amber Reflectors -->
-  <line x1="720" y1="620" x2="70" y2="1080" stroke="#F28C28" stroke-width="6"/>
-  <line x1="1200" y1="620" x2="1850" y2="1080" stroke="#F28C28" stroke-width="6"/>
+  <!-- Road Edges / Shoulders with Champagne Gold Reflectors -->
+  <line x1="720" y1="620" x2="70" y2="1080" stroke="#D4BC8B" stroke-width="6"/>
+  <line x1="1200" y1="620" x2="1850" y2="1080" stroke="#D4BC8B" stroke-width="6"/>
 
   <!-- Modern Highway Safety Crash Barrier (Left Side) -->
   <path d="M720 618 L70 1076 L50 1080 L710 618 Z" fill="url(#concreteBarrier)" opacity="0.8"/>
 
-  <!-- Silhouettes of Heavy Road Construction Equipment on Shoulder -->
   <!-- Road Roller Silhouette (Right Side) -->
   <g transform="translate(1420, 680) scale(0.95)">
     <!-- Cabin -->
-    <rect x="80" y="40" width="80" height="70" rx="6" fill="#F28C28" opacity="0.9"/>
-    <rect x="90" y="50" width="40" height="35" rx="3" fill="#10243A"/>
+    <rect x="80" y="40" width="80" height="70" rx="6" fill="#C5A465" opacity="0.9"/>
+    <rect x="90" y="50" width="40" height="35" rx="3" fill="#002D3F"/>
     <!-- Chassis / Body -->
     <polygon points="40,110 210,110 190,80 70,80" fill="#E2E8F0"/>
     <!-- Exhaust & Warning Beacon -->
-    <rect x="75" y="25" width="8" height="20" fill="#64748B"/>
-    <circle cx="120" cy="35" r="7" fill="#F28C28"/>
+    <rect x="75" y="25" width="8" height="20" fill="#5E7383"/>
+    <circle cx="120" cy="35" r="7" fill="#D4BC8B"/>
     <!-- Heavy Front Steel Drum Roller -->
-    <ellipse cx="60" cy="130" rx="42" ry="42" fill="#0F172A" stroke="#94A3B8" stroke-width="8"/>
-    <circle cx="60" cy="130" r="16" fill="#F28C28"/>
+    <ellipse cx="60" cy="130" rx="42" ry="42" fill="#001824" stroke="#8DA1B0" stroke-width="8"/>
+    <circle cx="60" cy="130" r="16" fill="#C5A465"/>
     <!-- Heavy Rear Steel Drum Roller -->
-    <ellipse cx="190" cy="130" rx="42" ry="42" fill="#0F172A" stroke="#94A3B8" stroke-width="8"/>
-    <circle cx="190" cy="130" r="16" fill="#F28C28"/>
+    <ellipse cx="190" cy="130" rx="42" ry="42" fill="#001824" stroke="#8DA1B0" stroke-width="8"/>
+    <circle cx="190" cy="130" r="16" fill="#C5A465"/>
   </g>
 
   <!-- Hydraulic Excavator Silhouette (Left Distance) -->
   <g transform="translate(260, 600) scale(0.7)">
     <!-- Tracks -->
-    <rect x="40" y="110" width="160" height="30" rx="12" fill="#0B131F" stroke="#475569" stroke-width="4"/>
+    <rect x="40" y="110" width="160" height="30" rx="12" fill="#001824" stroke="#5E7383" stroke-width="4"/>
     <!-- Upper Body & Cab -->
-    <polygon points="50,110 170,110 150,55 70,55" fill="#F28C28"/>
-    <rect x="110" y="60" width="45" height="35" rx="4" fill="#10243A"/>
+    <polygon points="50,110 170,110 150,55 70,55" fill="#C5A465"/>
+    <rect x="110" y="60" width="45" height="35" rx="4" fill="#002D3F"/>
     <!-- Boom & Arm -->
-    <line x1="80" y1="75" x2="20" y2="10" stroke="#F28C28" stroke-width="14" stroke-linecap="round"/>
-    <line x1="20" y1="10" x2="-20" y2="60" stroke="#F28C28" stroke-width="10" stroke-linecap="round"/>
+    <line x1="80" y1="75" x2="20" y2="10" stroke="#C5A465" stroke-width="14" stroke-linecap="round"/>
+    <line x1="20" y1="10" x2="-20" y2="60" stroke="#C5A465" stroke-width="10" stroke-linecap="round"/>
     <!-- Bucket -->
-    <path d="M-20 60 L-40 85 L-15 95 Z" fill="#0F172A"/>
+    <path d="M-20 60 L-40 85 L-15 95 Z" fill="#001824"/>
   </g>
 
   <!-- Highway Illumination Pole Standards with Warm Glows -->
   <g opacity="0.85">
-    <line x1="770" y1="620" x2="770" y2="520" stroke="#CBD5E1" stroke-width="3"/>
-    <path d="M770 520 Q785 505 805 510" stroke="#CBD5E1" stroke-width="3" fill="none"/>
+    <line x1="770" y1="620" x2="770" y2="520" stroke="#DFE5EB" stroke-width="3"/>
+    <path d="M770 520 Q785 505 805 510" stroke="#DFE5EB" stroke-width="3" fill="none"/>
     <ellipse cx="805" cy="515" rx="8" ry="4" fill="#FFFFFF"/>
-    <ellipse cx="805" cy="515" rx="20" ry="12" fill="#F28C28" opacity="0.3"/>
+    <ellipse cx="805" cy="515" rx="20" ry="12" fill="#D4BC8B" opacity="0.35"/>
 
-    <line x1="1150" y1="620" x2="1150" y2="520" stroke="#CBD5E1" stroke-width="3"/>
-    <path d="M1150 520 Q1135 505 1115 510" stroke="#CBD5E1" stroke-width="3" fill="none"/>
+    <line x1="1150" y1="620" x2="1150" y2="520" stroke="#DFE5EB" stroke-width="3"/>
+    <path d="M1150 520 Q1135 505 1115 510" stroke="#DFE5EB" stroke-width="3" fill="none"/>
     <ellipse cx="1115" cy="515" rx="8" ry="4" fill="#FFFFFF"/>
-    <ellipse cx="1115" cy="515" rx="20" ry="12" fill="#F28C28" opacity="0.3"/>
+    <ellipse cx="1115" cy="515" rx="20" ry="12" fill="#D4BC8B" opacity="0.35"/>
   </g>
 
   <!-- Engineering Grid & Subtle Blueprint Overlay -->
-  <line x1="0" y1="620" x2="1920" y2="620" stroke="#F28C28" stroke-width="1.5" stroke-dasharray="10,10" opacity="0.4"/>
+  <line x1="0" y1="620" x2="1920" y2="620" stroke="#D4BC8B" stroke-width="1.5" stroke-dasharray="10,10" opacity="0.4"/>
 </svg>

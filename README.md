@@ -10,8 +10,8 @@ A production-ready corporate website built for **Empire Construction and Infrast
 
 ## 1. Company Overview
 
-- **Company Name:** Empire Construction and Infrastructure
-- **Headquarters / Operations:** Jammu & Kashmir, India
+- **Company Name:** Empire Construction and Infrastructure (Empire Constructions & Infrastructures)
+- **Headquarters / Registered Office:** 1st Floor, Main Chowk Mirbazar, 192101, Jammu & Kashmir, India
 - **Industry:** Civil Engineering, Highway Development, Bridge Construction, Road Works & Government Contracting
 - **Official Email:** [sarmad@empireinfra.in](mailto:sarmad@empireinfra.in)
 - **Planned Domain:** [www.empireinfra.in](https://www.empireinfra.in)
@@ -25,7 +25,7 @@ A production-ready corporate website built for **Empire Construction and Infrast
   - `about.html` — About Us page with company introduction, 4 approach blocks (Quality, Reliability, Commitment, Development), corporate objective, and regional focus.
   - `services.html` — Detailed catalogue covering Highway Construction, Road Construction, Building Construction, Bridge Construction, Government Infrastructure, and Civil Contracting.
   - `machinery.html` — Comprehensive heavy equipment showcase covering Asphalt Pavers, Motor Graders, Vibratory Rollers, Soil Compactors, Excavators, Batching Plants, and Tippers.
-  - `projects.html` — Filterable project portfolio (All | Ongoing | Recent | Completed) with interactive modal detail view.
+  - `projects.html` — Filterable project portfolio (All | Ongoing | Recent | Completed) with interactive modal detail view and thumbnail gallery.
   - `contact.html` — Contact coordinates and interactive inquiry form pre-configured for `sarmad@empireinfra.in`.
   - `404.html` — Custom error page for seamless GitHub Pages routing.
 - **Technology Stack:** Pure HTML5, Modern CSS3 (Grid & Flexbox), Vanilla JavaScript (no heavy frameworks or runtime dependencies).
@@ -36,13 +36,15 @@ A production-ready corporate website built for **Empire Construction and Infrast
 
 ## 3. Brand Identity & Design System
 
+The corporate palette is derived directly from the official **Empire Constructions & Infrastructures** emblem:
+
 | Role | Color Name | Hex Code | Purpose |
 | :--- | :--- | :--- | :--- |
-| **Primary** | Deep Navy Blue | `#10243A` | Navigation, headers, authority accents |
-| **Secondary** | Pure White | `#FFFFFF` | Card surfaces, typography contrast |
-| **Accent** | Construction Orange | `#F28C28` | CTAs, focus indicators, highlights |
-| **Supporting** | Steel Grey | `#64748B` | Body copy, borders, muted details |
-| **Background** | Clean Off-White | `#F7F9FC` | Page body background |
+| **Primary** | Deep Petrol Ocean Blue | `#00425C` | Navigation, headers, shield body, executive presence |
+| **Accent** | Champagne Gold / Brass | `#C5A465` / `#D4BC8B` | Shield contour, mountain ridges, active states, CTAs |
+| **Secondary** | Pure White | `#FFFFFF` | Highway lanes, card surfaces, typography contrast |
+| **Supporting** | Slate Grey | `#5E7383` | Subtitles, body copy, borders, muted details |
+| **Background** | Architectural Off-White | `#F6F8FA` | Clean page body background |
 
 **Typography:**
 - Headings: `Montserrat` (bold, industrial, high authority)
