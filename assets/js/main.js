@@ -251,10 +251,6 @@ function openProjectModal(projectId) {
     ? `<span class="badge-verified" style="position: absolute; bottom: 20px; left: 20px;"><i class="fa-solid fa-circle-check"></i> Verified Company Project Record</span>`
     : `<span class="sample-badge" style="position: absolute; bottom: 20px; left: 20px;"><i class="fa-solid fa-layer-group"></i> Illustrative Project Template</span>`;
 
-  const noteBox = proj.isVerified
-    ? `<div style="background: #F0FDF4; border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 6px; font-size: 0.88rem; color: #065F46; margin-bottom: 24px;"><strong>Company Project:</strong> Civil infrastructure project undertaken by Empire Construction and Infrastructure in ${proj.location}. All photographs represent verified project execution.</div>`
-    : `<div style="background: #FFFBEB; border-left: 4px solid #F59E0B; padding: 14px 18px; border-radius: 6px; font-size: 0.85rem; color: #92400E; margin-bottom: 24px;"><strong>Portfolio Note:</strong> This card represents an illustrative sample entry demonstrating the project presentation layout.</div>`;
-
   const galleryHtml = (proj.gallery && proj.gallery.length > 1) ? `
     <div class="modal-gallery-strip">
       <div class="modal-gallery-title"><i class="fa-solid fa-images"></i> Project Photographs (${proj.gallery.length} Images — Click any to view):</div>
@@ -296,8 +292,6 @@ function openProjectModal(projectId) {
         <ul style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; font-size: 0.95rem; color: #334155;">
           ${componentsHtml}
         </ul>
-
-        ${noteBox}
 
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; border-top: 1px solid #E2E8F0; padding-top: 20px;">
           <a href="contact.html?subject=${encodeURIComponent('Inquiry regarding ' + proj.title)}" class="btn btn-primary btn-sm">
