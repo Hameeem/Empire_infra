@@ -345,72 +345,223 @@ function initContactForm() {
   if (!form) return;
 
   const feedback = document.querySelector("#formFeedback");
+  const submitBtn = document.querySelector("#contactSubmitBtn");
+  const copyEmailBtn = document.querySelector("#copyEmailBtn");
 
-  form.addEventListener("submit", (e) => {
+  // A. Pre-fill subject from URL query string if present (e.g. from project modal link)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const subjectParam = urlParams.get("subject");
+    if (subjectParam) {
+      const subjectInput = form.querySelector("#contactSubject");
+      if (subjectInput) {
+        subjectInput.value = subjectParam;
+      }
+    }
+  } catch (e) {
+    // ignore
+  }
+
+  // B. 1-Click Copy Email Address handler
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener("click", () => {
+      const email = "sarmad@empireinfra.in";
+      navigator.clipboard.writeText(email).then(() => {
+        const originalHtml = copyEmailBtn.innerHTML;
+        copyEmailBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        copyEmailBtn.style.color = "#10B981";
+        setTimeout(() => {
+          copyEmailBtn.innerHTML = originalHtml;
+          copyEmailBtn.style.color = "";
+        }, 2500);
+      }).catch(() => {
+        prompt("Copy email address:", email);
+      });
+    });
+  }
+
+  // C. Form Submission Handling with multi-channel direct delivery
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = form.querySelector("#contactName").value.trim();
-    const email = form.querySelector("#contactEmail").value.trim();
+    const name = form.querySelector("#contactName") ? form.querySelector("#contactName").value.trim() : "";
+    const email = form.querySelector("#contactEmail") ? form.querySelector("#contactEmail").value.trim() : "";
     const phone = form.querySelector("#contactPhone") ? form.querySelector("#contactPhone").value.trim() : "";
     const organization = form.querySelector("#contactOrg") ? form.querySelector("#contactOrg").value.trim() : "";
     const inquiryType = form.querySelector("#contactType") ? form.querySelector("#contactType").value : "General Inquiry";
     const subject = form.querySelector("#contactSubject") ? form.querySelector("#contactSubject").value.trim() : `Inquiry from ${name}`;
-    const message = form.querySelector("#contactMessage").value.trim();
+    const message = form.querySelector("#contactMessage") ? form.querySelector("#contactMessage").value.trim() : "";
 
+    // Validation
     if (!name || !email || !message) {
       if (feedback) {
-        feedback.className = "form-feedback error";
-        feedback.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please fill in all required fields (Name, Email, and Message).';
+        feedback.className = "form-feedback error visible";
+        feedback.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please fill in all required fields (Name, Email, and Project Details).';
+        feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
       return;
     }
 
-    // Construct professional email mailto body
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      if (feedback) {
+        feedback.className = "form-feedback error visible";
+        feedback.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Please enter a valid email address.';
+        feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      return;
+    }
+
+    // Set button loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Transmitting Inquiry to sarmad@empireinfra.in...';
+    }
+
     const emailTo = "sarmad@empireinfra.in";
-    const mailSubject = encodeURIComponent(`[Website Inquiry] ${inquiryType}: ${subject || name}`);
-    const mailBody = encodeURIComponent(
-      `Official Inquiry for Empire Construction and Infrastructure\n` +
-      `------------------------------------------------------------\n` +
-      `Name: ${name}\n` +
-      `Organization: ${organization || "N/A"}\n` +
-      `Email: ${email}\n` +
-      `Phone: ${phone || "N/A"}\n` +
-      `Inquiry Category: ${inquiryType}\n\n` +
-      `Project Scope / Message:\n${message}\n\n` +
-      `------------------------------------------------------------\n` +
-      `Submitted via www.empireinfra.in contact portal.`
-    );
+    const fullSubject = `[Website Inquiry] ${inquiryType}: ${subject || name} (${organization || "Direct"})`;
 
-    const mailtoUrl = `mailto:${emailTo}?subject=${mailSubject}&body=${mailBody}`;
+    const textBody =
+      `Empire Construction and Infrastructure — Official Web Inquiry\n` +
+      `============================================================\n\n` +
+      `CLIENT / CONTACT DETAILS:\n` +
+      `• Full Name: ${name}\n` +
+      `• Organization: ${organization || "N/A"}\n` +
+      `• Email: ${email}\n` +
+      `• Phone Number: ${phone || "N/A"}\n` +
+      `• Inquiry Category: ${inquiryType}\n\n` +
+      `PROJECT SCOPE / MESSAGE:\n` +
+      `${message}\n\n` +
+      `============================================================\n` +
+      `Dispatched via www.empireinfra.in | Head Office: 1st floor, Main chowk Mirbazar, 192101`;
 
-    // Provide friendly in-page feedback
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailTo)}&su=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(textBody)}`;
+    const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(textBody)}`;
+
+    const payload = {
+      name: name,
+      email: email,
+      phone: phone || "Not provided",
+      organization: organization || "Not provided",
+      inquiry_category: inquiryType,
+      subject: subject || "Direct Inquiry",
+      message: message,
+      _subject: fullSubject,
+      _replyto: email,
+      _template: "table",
+      _captcha: "false"
+    };
+
+    let transmissionSuccess = false;
+    let activationNotice = false;
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/sarmad@empireinfra.in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && (data.success === "true" || data.success === true)) {
+        transmissionSuccess = true;
+      } else if (data.message && data.message.includes("Activation")) {
+        transmissionSuccess = true;
+        activationNotice = true;
+      } else {
+        transmissionSuccess = false;
+      }
+    } catch (err) {
+      console.warn("AJAX transmission fallback:", err);
+      transmissionSuccess = false;
+    }
+
+    const escapeHtml = (str) => {
+      const div = document.createElement("div");
+      div.textContent = str;
+      return div.innerHTML;
+    };
+
     if (feedback) {
-      feedback.className = "form-feedback success";
+      feedback.className = "form-feedback visible " + (transmissionSuccess ? "success" : "info");
+
+      let headerIcon = '<i class="fa-solid fa-circle-check" style="font-size: 1.4rem; color: #10B981;"></i>';
+      let headerTitle = "Inquiry Successfully Transmitted!";
+      let noteText = `Your project inquiry has been dispatched directly to <strong>${emailTo}</strong>. Our engineering and contracts team will review your scope and respond promptly.`;
+
+      if (activationNotice) {
+        headerIcon = '<i class="fa-solid fa-envelope-circle-check" style="font-size: 1.4rem; color: #0284C7;"></i>';
+        headerTitle = "Inquiry Formulated &amp; Transmitted!";
+        noteText = `Your inquiry details have been forwarded to <strong>${emailTo}</strong>. <em>(Initial system notification sent to verify administrator mailbox)</em>.`;
+      } else if (!transmissionSuccess) {
+        headerIcon = '<i class="fa-solid fa-paper-plane" style="font-size: 1.4rem; color: var(--accent);"></i>';
+        headerTitle = "Inquiry Formatted &amp; Ready for Direct Transmission!";
+        noteText = `Your message has been compiled for <strong>${emailTo}</strong>. Choose your preferred direct delivery method below:`;
+      }
+
       feedback.innerHTML = `
-        <div style="display: flex; align-items: flex-start; gap: 10px;">
-          <i class="fa-solid fa-circle-check" style="font-size: 1.3rem; margin-top: 2px;"></i>
-          <div>
-            <strong>Thank you, ${name}!</strong><br>
-            Your inquiry has been formulated. Opening your default mail client to transmit directly to <strong>${emailTo}</strong>.<br>
-            <span style="font-size: 0.85rem; color: #065F46;">If your mail app did not open automatically, <a href="${mailtoUrl}" style="text-decoration: underline; font-weight: 700; color: #047857;">click here to send the email</a>.</span>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            ${headerIcon}
+            <strong style="font-size: 1.1rem; color: #10243A;">${headerTitle}</strong>
+          </div>
+          <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.6;">
+            ${noteText}
+          </p>
+          <div style="background: rgba(255, 255, 255, 0.7); border-radius: 8px; padding: 12px; font-size: 0.86rem; color: #475569; border: 1px solid rgba(0, 0, 0, 0.08);">
+            <strong>Summary:</strong> ${escapeHtml(name)} (${escapeHtml(organization || "Individual")}) &bull; ${escapeHtml(inquiryType)} &bull; ${escapeHtml(email)}
+          </div>
+          <div class="inquiry-fallback-actions">
+            <a href="${gmailUrl}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+              <i class="fa-brands fa-google"></i> Open in Gmail
+            </a>
+            <a href="${mailtoUrl}" class="btn btn-outline-navy btn-sm">
+              <i class="fa-solid fa-envelope"></i> Open in Mail Client
+            </a>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="copyDetailsBtn">
+              <i class="fa-regular fa-copy"></i> Copy Inquiry Details
+            </button>
           </div>
         </div>
       `;
+
+      const copyBtn = feedback.querySelector("#copyDetailsBtn");
+      if (copyBtn) {
+        copyBtn.addEventListener("click", () => {
+          navigator.clipboard.writeText(textBody).then(() => {
+            const orig = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Details Copied!';
+            copyBtn.style.borderColor = "#10B981";
+            copyBtn.style.color = "#10B981";
+            setTimeout(() => {
+              copyBtn.innerHTML = orig;
+              copyBtn.style.borderColor = "";
+              copyBtn.style.color = "";
+            }, 2500);
+          }).catch(() => {
+            prompt("Copy inquiry details:", textBody);
+          });
+        });
+      }
+
+      feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 
-    // Open user's email client
-    window.location.href = mailtoUrl;
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Inquiry Submitted — Send Another?';
+    }
 
-    // Reset form after brief pause
-    setTimeout(() => {
+    if (transmissionSuccess) {
       form.reset();
-    }, 2000);
+    }
   });
 }
 
-/* -------------------------------------------------------------
- * 6. DYNAMIC CURRENT YEAR
- * ----------------------------------------------------------- */
 function initCurrentYear() {
   const yearEls = document.querySelectorAll(".current-year");
   const year = new Date().getFullYear();
